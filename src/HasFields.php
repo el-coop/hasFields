@@ -21,13 +21,14 @@ trait HasFields {
 	 * @return mixed
 	 */
 
-	static function getFieldName (){
+	private static function getFieldName (){
 		if (property_exists(static::class, 'fieldClass')){
 			return static::$fieldClass;
 		}
 		return static::class;
 	}
-	static function fields() {
+
+	public  static function fields() {
 		$field = static::getFieldName();
 		if (!static::$customFields) {
 			static::$customFields = Field::where('form', $field)->orderBy('order')->get();
@@ -36,7 +37,7 @@ trait HasFields {
 		return static::$customFields;
 	}
 	
-	static function getLastFieldOrder() {
+	public static function getLastFieldOrder() {
 		$field = static::getFieldName();
 		return Field::where('form', $field)->max('order');
 	}
