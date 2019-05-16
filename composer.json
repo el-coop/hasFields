@@ -1,0 +1,26 @@
+{
+    "name": "elcoop/has-fields",
+    "description": "Has field trait",
+    "type": "laravel-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "el-coop",
+            "email": "contact@elcoop.io"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ElCoop\\HasFields\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ElCoop\\HasFields\\HasFieldsServiceProvider"
+            ]
+        }
+    }
+}
