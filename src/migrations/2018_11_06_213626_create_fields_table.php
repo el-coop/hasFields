@@ -16,7 +16,7 @@ class CreateFieldsTable extends Migration {
 			$table->bigIncrements('id');
 			foreach (config('app.locales',[config('app.locale', 'en')]) as $locale) {
 				$table->string('name_' . $locale);
-				$table->string('placeholder_' . $locale);
+				$table->string('placeholder_' . $locale)->nullable();
 			}
 			$table->string('type');
 			$table->string('form');
