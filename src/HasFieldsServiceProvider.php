@@ -20,6 +20,6 @@ class HasFieldsServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function boot() {
-		$this->loadMigrationsFrom(__DIR__.'\\migrations\\2018_11_06_213626_create_fields_table.php');
+		$this->loadMigrationsFrom(__DIR__.'/migrations/2018_11_06_213626_create_fields_table.php');
 	}
 }
