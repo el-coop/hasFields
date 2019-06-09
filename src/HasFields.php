@@ -82,7 +82,8 @@ trait HasFields {
 				'label' => $item->{'name_' . App::getLocale()},
 				'type' => $item->type,
 				'value' => $this->data[$item->id] ?? '',
-				'placeholder' => $item->{'placeholder_' . App::getLocale()}
+				'placeholder' => $item->{'placeholder_' . App::getLocale()},
+				'checked' => $item->type == 'checkbox' ?? false
 			];
 		});
 	}
