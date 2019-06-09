@@ -77,13 +77,19 @@ trait HasFields {
 		$dataName = strtolower(substr($field, strrpos($field, '\\') + 1));
 		
 		return static::fields()->map(function ($item) use ($dataName) {
+			$checked = false;
+			if ($item->type == 'checkbox'){
+				if ($this->data[$item->id] == 1){
+					$checked = true;
+				}
+			}
 			return [
 				'name' => "{$dataName}[{$item->id}]",
 				'label' => $item->{'name_' . App::getLocale()},
 				'type' => $item->type,
 				'value' => $this->data[$item->id] ?? '',
 				'placeholder' => $item->{'placeholder_' . App::getLocale()},
-				'checked' => $item->type == 'checkbox' ?? false
+				'checked' => $checked
 			];
 		});
 	}
