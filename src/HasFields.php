@@ -78,7 +78,7 @@ trait HasFields {
 
 		return static::fields()->map(function ($item) use ($dataName) {
 			$checked = false;
-			if ($item->type == 'checkbox' && $this->data[$item->id] == 1) {
+			if ($item->type == 'checkbox' && isset($this->data[$item->id]) && $this->data[$item->id] == 1) {
 				$checked = true;
 			}
 			return [
